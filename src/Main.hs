@@ -1,14 +1,19 @@
-module Main where
+import Xmobar
 
-import Main.Utf8 qualified as Utf8
+config :: Config
+config =
+  defaultConfig
+    { font = "DejaVu Sans Mono 15",
+      allDesktops = True,
+      alpha = 200,
+      commands =
+        [ Run $ Memory [ "-t", "Mem: <used> Gb", "--", "--scale", "1024"] 20,
+          Run $ Kbd [],
+          Run $ Date "%a %_d %b %Y <fc=#ee9a00>%H:%M</fc>" "date" 10
+        ],
+      template = "}{ %kbd% | %date% | %memory%",
+      alignSep = "}{"
+    }
 
-{- |
- Main entry point.
-
- The `, run` script will invoke this function.
--}
 main :: IO ()
-main = do
-  -- For withUtf8, see https://serokell.io/blog/haskell-with-utf8
-  Utf8.withUtf8 $ do
-    putTextLn "Hello 🌎"
+main = xmobar config
