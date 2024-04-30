@@ -1,6 +1,7 @@
 cabal-version:      2.4
 name:               myxmobar
 version:            0.1.0.0
+
 -- license:            MIT
 -- copyright:          2022 Sridhar Ratnakumar
 -- maintainer:         srid@srid.ca
@@ -62,7 +63,7 @@ common shared
     ViewPatterns
 
   build-depends:
-    , base          >=4   && <5
+    , base    >=4 && <5
     , xmobar
 
   hs-source-dirs:     src
