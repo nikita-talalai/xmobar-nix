@@ -10,8 +10,9 @@ config =
         [ Run $ Memory ["-t", "Mem: <used> Gb", "--", "--scale", "1024"] 20
         , Run $ Kbd []
         , Run $ Date "%a %d/%m/%y <fc=#ee9a00>%H:%M</fc>" "date" 10
+        , Run $ XMonadLog
         ]
-    , template = "}{ %kbd% | %date% | %memory%"
+    , template = "%XMonadLog% }{ %kbd% | %date% | %memory%"
     , alignSep = "}{"
     }
 
